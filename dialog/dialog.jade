@@ -1,0 +1,8 @@
+
+mixin dialog(id, type, btn, texts)
+  - if (typeof texts === 'string') { texts = [texts] }
+  div.dialog(id="#{id}")
+    div.content(class="#{type}")
+        each text in texts
+          div= text
+        span.btn(onclick="dialog('#{id}').hide()")= btn
