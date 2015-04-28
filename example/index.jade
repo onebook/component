@@ -1,0 +1,50 @@
+include ../dialog/dialog
+
+doctype html
+html
+  title example
+  meta(charset="utf-8")
+  link(rel="stylesheet" href="../dialog/dialog.css")
+  link(rel="stylesheet" href="../popup/popup.css")
+  script(src="../dialog/dialog.js")
+  style.
+    body {
+      height: 600px;
+    }
+
+    .btn {
+      display: block;
+      width: 60px;
+      height: 30px;
+      background: green;
+    }
+  body
+    div
+      button(onclick="show('d1')") dialog1
+      button(onclick="show('d2')") dialog2
+      button(onclick="show('d3')") dialog3
+
+      +dialog('d1', 'fade', 'btn1', 'hello, world!')
+      +dialog('d2', 'scale', 'btn2', ['one', 'two'])
+      +dialog('d3', 'slide', 'btn3', ['one', 'tow'])
+
+    div
+      button(onclick="pop('fade')") pop fade
+      button(onclick="pop('scale')") pop scale
+
+      div.com-popup
+        div pop pop pop
+
+    script.
+      function show(id) {
+        dialog(id).show();
+      }
+
+      function pop(type) {
+        var node = document.querySelector('.com-popup');
+        node.classList.remove('fade')
+        node.classList.remove('scale')
+        setTimeout(function() {
+          node.classList.add(type)
+        }, 10);
+      }

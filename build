@@ -1,6 +1,16 @@
 #!/usr/bin/env bash
 
+SCSS='sass --sourcemap=none'
+JADE='node_modules/.bin/jade --pretty'
+
 echo build dialog
 
-sass dialog/dialog.scss dialog/dialog.css --sourcemap=none
-node_modules/.bin/jade dialog/example/index.jade --pretty
+$SCSS dialog/dialog.scss dialog/dialog.css
+
+echo build popup
+
+$SCSS popup/popup.scss popup/popup.css
+
+echo build example
+
+$JADE example/index.jade

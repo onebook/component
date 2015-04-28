@@ -1,0 +1,40 @@
+$duration: 2000ms;
+
+.com-popup {
+  opacity: 0;
+
+  &.fade {
+    animation: pop-fade $duration;
+
+    @keyframes pop-fade {
+      0% {
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+  }
+
+  &.scale {
+    animation: pop-scale $duration;
+
+    @keyframes pop-scale {
+      0% {
+        transform: scale(0);
+        opacity: 1;
+      }
+      50% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(0);
+        opacity: 1;
+      }
+    }
+  }
+}
