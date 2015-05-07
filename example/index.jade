@@ -4,8 +4,10 @@ doctype html
 html
   title example
   meta(charset="utf-8")
+  link(rel="stylesheet" href="../progress/progress.css")
   link(rel="stylesheet" href="../dialog/dialog.css")
   link(rel="stylesheet" href="../popup/popup.css")
+  link(rel="stylesheet" href="../slide/slide.css")
   script(src="../dialog/dialog.js")
   style.
     body {
@@ -35,16 +37,53 @@ html
       div.com-popup
         div pop pop pop
 
+    div
+      div.com-progress
+        div.percent
+
+    div
+      div.com-slide
+        div.content +1
+
     script.
       function show(id) {
-        dialog(id).show();
+        dialog(id).show()
+      }
+      function $(selector) {
+        return document.querySelector(selector)
       }
 
       function pop(type) {
-        var node = document.querySelector('.com-popup');
+        var node = $('.com-popup')
         node.classList.remove('fade')
         node.classList.remove('scale')
         setTimeout(function() {
           node.classList.add(type)
-        }, 10);
+        }, 10)
+      }
+
+      slide()
+      progress()
+
+      function progress() {
+        $('.percent').style.width = '30%'
+        setTimeout(function() {
+          $('.percent').style.width = '70%'
+          setTimeout(function() {
+            $('.percent').style.width = '100%'
+          }, 2000)
+        }, 2000)
+      }
+
+      function slide() {
+        $('.com-slide .content').style.left = '0'
+        $('.com-slide .content').style.opacity = ''
+        setTimeout(function() {
+          $('.com-slide .content').style.left = '80px'
+          $('.com-slide .content').style.opacity = '1'
+          setTimeout(function() {
+            $('.com-slide .content').style.left = '160px'
+            $('.com-slide .content').style.opacity = '0'
+          }, 800)
+        }, 800)
       }

@@ -1,0 +1,22 @@
+$width: 200px;
+$height: 20px;
+$border-color: green;
+$shadow-color: gray;
+
+.com-progress {
+  width: $width;
+  height: $height;
+  border: 1px solid $border-color;
+  box-shadow: 1px 1px 1px 1px $shadow-color;
+  background: -webkit-gradient(linear, 0 0, 0 100%, from(gray), to(white));
+  border-radius: $height / 2;
+  padding: 1px;
+
+  .percent {
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(orange), to(red));
+    transition: width 1s ease-in-out;
+    width: 30%;
+    height: 100%;
+    border-radius: $height / 2;
+  }
+}

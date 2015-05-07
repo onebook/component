@@ -1,0 +1,17 @@
+$width: 200px;
+$height: 30px;
+$ctx-width: 20px;
+$left: 0px;
+
+.com-slide {
+  width: $width;
+  height: $height;
+
+  .content {
+    position: relative;
+    width: $ctx-width;
+    opacity: 0;
+    left: $left;
+    transition: left 0.8s ease-in-out, opacity 0.8s ease-in-out;
+  }
+}

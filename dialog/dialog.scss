@@ -25,6 +25,10 @@ $duration: 500ms;
     display: inline-block;
     z-index: 1999;
 
+    .btn {
+      display: inline-block;
+    }
+
     // slide
     &.slide {
       transition: opacity $duration, top $duration;

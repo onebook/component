@@ -11,6 +11,14 @@ echo build popup
 
 $SCSS popup/popup.scss popup/popup.css
 
+echo build process
+
+$SCSS progress/progress.scss progress/progress.css
+
+echo build slide
+
+$SCSS slide/slide.scss slide/slide.css
+
 echo build example
 
 $JADE example/index.jade
