@@ -20,6 +20,10 @@ html
       height: 30px;
       background: green;
     }
+
+    .com-slide-show-hide {
+      background: green;
+    }
   body
     div
       button(onclick="show('d1')") dialog1
@@ -42,8 +46,17 @@ html
         div.percent
 
     div
-      div.com-slide
+      div#slide1.com-slide
         div.content +1
+
+    div
+      div#slide2.com-slide-show-hide
+        div golang
+        div nodejs
+        div python
+        div react
+        div jade
+        div js
 
     script.
       function show(id) {
@@ -62,7 +75,8 @@ html
         }, 10)
       }
 
-      slide()
+      slide1()
+      slide2()
       progress()
 
       function progress() {
@@ -75,15 +89,24 @@ html
         }, 2000)
       }
 
-      function slide() {
-        $('.com-slide .content').style.left = '0'
-        $('.com-slide .content').style.opacity = ''
+      function slide1() {
+        $('#slide1 .content').style.left = '0'
+        $('#slide1 .content').style.opacity = ''
         setTimeout(function() {
-          $('.com-slide .content').style.left = '80px'
-          $('.com-slide .content').style.opacity = '1'
+          $('#slide1 .content').style.left = '80px'
+          $('#slide1 .content').style.opacity = '1'
           setTimeout(function() {
-            $('.com-slide .content').style.left = '160px'
-            $('.com-slide .content').style.opacity = '0'
+            $('#slide1 .content').style.left = '160px'
+            $('#slide1 .content').style.opacity = '0'
           }, 800)
         }, 800)
+      }
+
+      function slide2() {
+        setTimeout(function() {
+          $('#slide2').style.height = '150px'
+          setTimeout(function() {
+            $('#slide2').style.height = '0'
+          }, 1000)
+        }, 1000)
       }

@@ -15,3 +15,23 @@ $left: 0px;
     transition: left 0.8s ease-in-out, opacity 0.8s ease-in-out;
   }
 }
+
+@mixin com-slide-show-hide($width, $height, $direction, $duration) {
+  text-overflow: ellipsis;
+  word-break: break-all;
+  overflow: hidden;
+
+  @if $direction == row {
+    height: $height;
+    width: 0;
+    transition: width $duration;
+  } @else {
+    height: 0;
+    width: $width;
+    transition: height $duration;
+  }
+}
+
+.com-slide-show-hide {
+  @include com-slide-show-hide(100px, 200px, column, 1s);
+}

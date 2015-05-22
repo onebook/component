@@ -5,5 +5,5 @@
     "gulp-es6-module-transpiler": "0",
     "gulp-jade": "1",
     "gulp-ruby-sass": "1"
-  },
+  }
 }

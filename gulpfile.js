@@ -28,4 +28,4 @@ gulp.task('scss', function() {
     .pipe(gulp.dest('build/'))
 })
 
-gulp.task('default', ['module', 'scss'])
+gulp.task('default', ['module', 'scss', 'jade'])
