@@ -1,7 +1,9 @@
 'use strict'
 
-const es6moduleTranspiler = require('gulp-es6-module-transpiler')
-const rubySass = require('gulp-ruby-sass')
+const scss = require('gulp-ruby-sass')
+const pack = require('gulp-webpack')
+const seq = require('run-sequence')
+const babel = require('gulp-babel')
 const jade = require('gulp-jade')
 const gulp = require('gulp')
 
@@ -13,19 +15,34 @@ gulp.task('jade', function() {
     .pipe(gulp.dest('./example/'))
 })
 
-gulp.task('module', function() {
-  return gulp.src('*/*.js')
-    .pipe(es6moduleTranspiler({
-      formatter: 'bundle'
-    }))
-    .on('error', console.error.bind(console))
-    .pipe(gulp.dest('build/'))
+gulp.task('babel', function() {
+  return gulp.src(['*/*.js', '!build/**/*', '!example/**/*', '!test/**/*'])
+    .pipe(babel())
+    .pipe(gulp.dest('build/babel/'))
+})
+
+gulp.task('import', function() {
+  return gulp.src('example/*.js')
+    .pipe(babel())
+    .pipe(gulp.dest('build/babel/import/'))
 })
 
 gulp.task('scss', function() {
-  return rubySass('./')
+  return scss('./')
     .on('error', console.error.bind(console))
     .pipe(gulp.dest('build/'))
 })
 
-gulp.task('default', ['module', 'scss', 'jade'])
+gulp.task('pack', function() {
+  return gulp.src('build/babel/import/*.js')
+    .pipe(pack({
+      output: {
+        filename: 'index.js'
+      }
+    }))
+    .pipe(gulp.dest('build/dist/'))
+})
+
+gulp.task('default', function() {
+  seq(['scss', 'jade', 'babel'], ['import'], ['pack'])
+})

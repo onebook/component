@@ -1,0 +1,11 @@
+
+@mixin com-mask($z-index, $opacity) {
+  display: block;
+  position: fixed;
+  z-index: $z-index;
+  opacity: $opacity;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}

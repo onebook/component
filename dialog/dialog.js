@@ -6,40 +6,38 @@ function dialog(q) {
   return new Dialog(node, content)
 }
 
-function Dialog(node, content) {
-  this.node = node
-  this.duration = 500
-  this.content = content
-}
+class Dialog {
+  constructor(node, content) {
+    this.node = node
+    this.duration = 500
+    this.content = content
+  }
+  show() {
+    this.node.style.display = 'block'
 
-Dialog.prototype.show = function() {
-  this.node.style.display = 'block'
+    var self = this
+    setTimeout(function() {
+      self.removeClass('hide').addClass('show')
+    }, 10)
+  }
+  hide() {
+    this.removeClass('show').addClass('hide')
 
-  var self = this
-  setTimeout(function() {
-    self.removeClass('hide').addClass('show')
-  }, 10)
-}
-
-Dialog.prototype.hide = function() {
-  this.removeClass('show').addClass('hide')
-
-  var self = this
-  setTimeout(function() {
-    self.node.style.display = 'none'
-  }, this.duration)
-}
-
-Dialog.prototype.addClass = function(name) {
-  this.content.classList.add(name)
-  this.node.classList.add(name)
-  return this
-}
-
-Dialog.prototype.removeClass = function(name) {
-  this.content.classList.remove(name)
-  this.node.classList.remove(name)
-  return this
+    var self = this
+    setTimeout(() => {
+      self.node.style.display = 'none'
+    }, this.duration)
+  }
+  addClass(name) {
+    this.content.classList.add(name)
+    this.node.classList.add(name)
+    return this
+  }
+  removeClass(name) {
+    this.content.classList.remove(name)
+    this.node.classList.remove(name)
+    return this
+  }
 }
 
 export { dialog }
