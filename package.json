@@ -1,11 +1,19 @@
 {
   "private": true,
+  "scripts": {
+    "start": "node test/support/server"
+  },
   "devDependencies": {
+    "co-multipart": "0",
     "gulp": "3",
     "gulp-babel": "5",
     "gulp-jade": "1",
     "gulp-ruby-sass": "1",
     "gulp-webpack": "1",
+    "koa": "0",
+    "koa-bodyparser": "2",
+    "koa-mount": "1",
+    "koa-static": "1",
     "run-sequence": "1"
   }
 }

@@ -8,22 +8,7 @@ html
   link(rel="stylesheet" href="../build/dialog/dialog.css")
   link(rel="stylesheet" href="../build/popup/popup.css")
   link(rel="stylesheet" href="../build/slide/slide.css")
-  script(src="../build/dist/index.js")
-  style.
-    body {
-      height: 600px;
-    }
 
-    .btn {
-      display: block;
-      width: 60px;
-      height: 30px;
-      background: green;
-    }
-
-    .com-slide-show-hide {
-      background: green;
-    }
   body
     div
       button(onclick="show('d1')") dialog1
@@ -58,55 +43,32 @@ html
         div jade
         div js
 
-    script.
-      function show(id) {
-        dialog(id).show()
-      }
-      function $(selector) {
-        return document.querySelector(selector)
+    div
+      h3 uploader
+      div.drop
+      input(type="file" id="uploader-file")
+      button(onclick="upload()") upload
+
+    style.
+      body {
+        height: 600px;
       }
 
-      function pop(type) {
-        var node = $('.com-popup')
-        node.classList.remove('fade')
-        node.classList.remove('scale')
-        setTimeout(function() {
-          node.classList.add(type)
-        }, 10)
+      .btn {
+        display: block;
+        width: 60px;
+        height: 30px;
+        background: green;
       }
 
-      slide1()
-      slide2()
-      progress()
-
-      function progress() {
-        $('.percent').style.width = '30%'
-        setTimeout(function() {
-          $('.percent').style.width = '70%'
-          setTimeout(function() {
-            $('.percent').style.width = '100%'
-          }, 2000)
-        }, 2000)
+      .com-slide-show-hide {
+        background: green;
       }
 
-      function slide1() {
-        $('#slide1 .content').style.left = '0'
-        $('#slide1 .content').style.opacity = ''
-        setTimeout(function() {
-          $('#slide1 .content').style.left = '80px'
-          $('#slide1 .content').style.opacity = '1'
-          setTimeout(function() {
-            $('#slide1 .content').style.left = '160px'
-            $('#slide1 .content').style.opacity = '0'
-          }, 800)
-        }, 800)
+      .drop {
+        background: gray;
+        width: 250px;
+        height: 250px;
       }
 
-      function slide2() {
-        setTimeout(function() {
-          $('#slide2').style.height = '150px'
-          setTimeout(function() {
-            $('#slide2').style.height = '0'
-          }, 1000)
-        }, 1000)
-      }
+    script(src="../build/dest/index.js")
