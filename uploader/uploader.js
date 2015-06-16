@@ -38,6 +38,7 @@ class Uploader {
 
   upload(formData) {
     return fetch(this.dest, {
+      credentials: 'same-origin',
       method: this.method,
       body: formData
     })
