@@ -1,5 +1,6 @@
 'use strict'
 
+import { RotativeDot } from '../canvas/rotative-dot'
 import { Uploader } from '../uploader/uploader'
 import { dialog } from '../dialog/dialog'
 
@@ -60,7 +61,7 @@ function slide2() {
   }, 1000)
 }
 
-(function() {
+(() => {
   var uploader = new Uploader({
     dest: '/upload'
   })
@@ -114,3 +115,8 @@ function upload() {
       console.error('upload error: %o', error)
     })
 }
+
+var rotativeDot = new RotativeDot({
+  container: document.querySelector('.canvases')
+})
+rotativeDot.run()
