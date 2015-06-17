@@ -1,0 +1,23 @@
+
+@mixin background {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  background-color: rgba(74, 74, 74, 0.5);
+  text-align: center;
+}
+
+@mixin content {
+  display: inline-block;
+  box-sizing: border-box;
+  text-decoration: none;
+  background: white;
+  max-width: 80%;
+  min-width: 260px;
+  border: 1px solid #eee;
+  margin: 0 auto;
+  padding: 15px 20px;
+  z-index: 1999;
+}

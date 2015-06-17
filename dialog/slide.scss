@@ -1,0 +1,34 @@
+@import "mixin";
+
+$duration: 500ms;
+
+.com-dialog-slide {
+  @include background;
+  display: none;
+  transition: opacity $duration;
+
+  .content {
+    @include content;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+
+    .btn {
+      display: inline-block;
+    }
+
+    // slide
+    &.slide {
+      transition: opacity $duration, top $duration;
+      top: -500px;
+      &.show {
+        opacity: 1;
+        top: 50%;
+      }
+      &.hide {
+        opacity: 0;
+        top: -500px;
+      }
+    }
+  }
+}

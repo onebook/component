@@ -1,52 +1,23 @@
+@import "mixin";
+
 $duration: 500ms;
 
 .com-dialog {
-  position: fixed;
+  @include background;
   display: none;
-  // for scale, fade: use flexbox
-  // display: flex;
-  // flex-direction: column;
-  // justify-content: center;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 999;
-  background-color: rgba(74, 74, 74, 0.5);
   transition: opacity $duration;
-  text-align: center;
+
+  &.show {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 
   .content {
-    box-sizing: border-box;
-    text-decoration: none;
-    background: white;
-    position: relative;
-    // for slide: use top
-    top: 50%;
-    transform: translateY(-50%);
-    max-width: 80%;
-    min-width: 260px;
-    border: 1px solid #eee;
-    margin: 0 auto;
-    padding: 15px 20px;
-    display: inline-block;
-    z-index: 1999;
+    @include content;
 
     .btn {
       display: inline-block;
-    }
-
-    // slide
-    &.slide {
-      transition: opacity $duration, top $duration;
-      top: -500px;
-      &.show {
-        opacity: 1;
-        top: 50%;
-      }
-      &.hide {
-        opacity: 0;
-        top: -500px;
-      }
     }
 
     // fade

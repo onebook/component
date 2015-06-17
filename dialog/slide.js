@@ -13,7 +13,7 @@ class Dialog {
     this.content = content
   }
   show() {
-    this.node.classList.add('show')
+    this.node.style.display = 'block'
 
     var self = this
     setTimeout(() => {
@@ -25,7 +25,7 @@ class Dialog {
 
     var self = this
     setTimeout(() => {
-      self.node.classList.remove('show')
+      self.node.style.display = 'none'
     }, this.duration)
   }
   add(name) {

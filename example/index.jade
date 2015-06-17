@@ -6,18 +6,19 @@ html
   meta(charset="utf-8")
   link(rel="stylesheet" href="../build/progress/progress.css")
   link(rel="stylesheet" href="../build/dialog/dialog.css")
+  link(rel="stylesheet" href="../build/dialog/slide.css")
   link(rel="stylesheet" href="../build/popup/popup.css")
   link(rel="stylesheet" href="../build/slide/slide.css")
 
   body
     div
-      button(onclick="show('d1')") dialog1
-      button(onclick="show('d2')") dialog2
-      button(onclick="show('d3')") dialog3
+      button(onclick="dialog('d1').show()") dialog1
+      button(onclick="dialog('d2').show()") dialog2
+      button(onclick="dialogSlide('d3').show()") dialog3
 
       +dialog('d1', 'fade', 'btn1', 'hello, world!')
       +dialog('d2', 'scale', 'btn2', ['one', 'two'])
-      +dialog('d3', 'slide', 'btn3', ['one', 'tow'])
+      +dialogSlide('d3', 'slide', 'btn3', ['one', 'tow'])
 
     div
       button(onclick="pop('fade')") pop fade

@@ -1,21 +1,18 @@
 'use strict'
 
+import { dialog as dialogSlide } from '../dialog/slide'
 import { RotativeDot } from '../canvas/rotative-dot'
 import { Uploader } from '../uploader/uploader'
 import { dialog } from '../dialog/dialog'
 
+window.dialogSlide = dialogSlide
 window.dialog = dialog
 window.upload = upload
-window.show = show
 window.pop = pop
 
 slide1()
 slide2()
 progress()
-
-function show(id) {
-  dialog(id).show()
-}
 
 function $(selector) {
   return document.querySelector(selector)
