@@ -4,6 +4,7 @@ import { RotativeDot } from '../canvas/rotative-dot'
 import { Uploader } from '../uploader/uploader'
 import { dialog } from '../dialog/dialog'
 
+window.dialog = dialog
 window.upload = upload
 window.show = show
 window.pop = pop

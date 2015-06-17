@@ -16,7 +16,7 @@ class Dialog {
     this.node.style.display = 'block'
 
     var self = this
-    setTimeout(function() {
+    setTimeout(() => {
       self.removeClass('hide').addClass('show')
     }, 10)
   }
