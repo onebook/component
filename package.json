@@ -1,5 +1,8 @@
 {
+  "name": "component",
+  "version": "0.2.1",
   "private": true,
+  "description": "my components",
   "scripts": {
     "support": "node test/support/server",
     "start": "python -m SimpleHTTPServer 3000"
@@ -16,5 +19,6 @@
     "koa-mount": "1",
     "koa-static": "1",
     "run-sequence": "1"
-  }
+  },
+  "license": "MIT"
 }
