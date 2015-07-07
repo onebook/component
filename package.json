@@ -1,7 +1,8 @@
 {
   "private": true,
   "scripts": {
-    "start": "node test/support/server"
+    "support": "node test/support/server",
+    "start": "python -m SimpleHTTPServer 3000"
   },
   "devDependencies": {
     "co-multipart": "0",

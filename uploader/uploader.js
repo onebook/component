@@ -49,13 +49,13 @@ class Uploader {
 
     switch (type) {
       case 'binaryString':
-        reader.readAsBinaryString()
+        reader.readAsBinaryString(file)
         break
       case 'arrayBuffer':
-        reader.readAsArrayBuffer()
+        reader.readAsArrayBuffer(file)
         break
       case 'dataURL':
-        reader.readAsDataURL()
+        reader.readAsDataURL(file)
         break
       case 'text':
         reader.readAsText(file)

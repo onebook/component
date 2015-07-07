@@ -13,7 +13,7 @@ html
   body
     div
       button(onclick="dialog('d1').show()") dialog1
-      button(onclick="dialog('d2').show()") dialog2
+      button(onclick="dialog('d2', { click2hide: true }).show()") dialog2
       button(onclick="dialogSlide('d3').show()") dialog3
 
       +dialog('d1', 'fade', 'btn1', 'hello, world!')

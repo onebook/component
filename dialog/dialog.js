@@ -1,9 +1,19 @@
 'use strict'
 
-function dialog(q) {
+function dialog(q, opts) {
+  opts = opts || {}
+
   var node = document.getElementById(q)
   var content = node.children && node.children[0]
-  return new Dialog(node, content)
+  var instance = new Dialog(node, content)
+
+  if (opts.click2hide) {
+    node.addEventListener('click', () => {
+      instance.hide()
+    })
+  }
+
+  return instance
 }
 
 class Dialog {
