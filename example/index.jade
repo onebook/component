@@ -4,11 +4,8 @@ doctype html
 html
   title example
   meta(charset="utf-8")
-  link(rel="stylesheet" href="../build/progress/progress.css")
   link(rel="stylesheet" href="../build/dialog/dialog.css")
   link(rel="stylesheet" href="../build/dialog/slide.css")
-  link(rel="stylesheet" href="../build/popup/popup.css")
-  link(rel="stylesheet" href="../build/slide/slide.css")
 
   body
     div
@@ -19,30 +16,6 @@ html
       +dialog('d1', 'fade', 'btn1', 'hello, world!')
       +dialog('d2', 'scale', 'btn2', ['one', 'two'])
       +dialogSlide('d3', 'slide', 'btn3', ['one', 'tow'])
-
-    div
-      button(onclick="pop('fade')") pop fade
-      button(onclick="pop('scale')") pop scale
-
-      div.com-popup
-        div pop pop pop
-
-    div
-      div.com-progress
-        div.percent
-
-    div
-      div#slide1.com-slide
-        div.content +1
-
-    div
-      div#slide2.com-slide-show-hide
-        div golang
-        div nodejs
-        div python
-        div react
-        div jade
-        div js
 
     div
       h3 uploader
@@ -61,10 +34,6 @@ html
         display: block;
         width: 60px;
         height: 30px;
-        background: green;
-      }
-
-      .com-slide-show-hide {
         background: green;
       }
 
