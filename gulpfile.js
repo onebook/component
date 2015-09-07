@@ -17,7 +17,9 @@ gulp.task('jade', function() {
 
 gulp.task('babel', function() {
   return gulp.src(['*/*.js', '!build/**/*', '!example/**/*', '!test/**/*'])
-    .pipe(babel())
+    .pipe(babel({
+      loose: 'all'
+    }))
     .pipe(gulp.dest('build/babel/'))
 })
 

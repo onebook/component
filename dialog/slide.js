@@ -12,6 +12,7 @@ class Dialog {
     this.duration = 500
     this.content = content
   }
+
   show() {
     this.node.style.display = 'block'
 
@@ -20,6 +21,7 @@ class Dialog {
       self.remove('hide').add('show')
     }, 10)
   }
+
   hide() {
     this.remove('show').add('hide')
 
@@ -28,10 +30,12 @@ class Dialog {
       self.node.style.display = 'none'
     }, this.duration)
   }
+
   add(name) {
     this.content.classList.add(name)
     return this
   }
+
   remove(name) {
     this.content.classList.remove(name)
     return this

@@ -10,6 +10,7 @@ class RotativeDot {
     this.style = opts.style || 'rgba(0, 0, 0, 0.5)'
     this.container = opts.container || document.querySelector('body')
   }
+
   drawDot(x, y, radius) {
     var ctx = this.context
     ctx.beginPath()
@@ -19,6 +20,7 @@ class RotativeDot {
     ctx.fill()
     ctx.stroke()
   }
+
   drawDots(ang) {
     var dist = this.center * 0.5
     var ctx = this.context
@@ -41,6 +43,7 @@ class RotativeDot {
 
     ctx.rotate(-(ang + 2.4))
   }
+
   drawBack() {
     var background = this.background
     var ctx = this.context
@@ -54,6 +57,7 @@ class RotativeDot {
     ctx.stroke()
     ctx.save()
   }
+
   run() {
     var canvas = document.createElement('canvas')
     var size = this.size
