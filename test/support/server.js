@@ -11,6 +11,7 @@ let app = koa()
 app.use(bodyParser())
 app.use(serve(path.join(__dirname, '../../example')))
 app.use(mount('/build', serve(path.join(__dirname, '../../build'))))
+app.use(mount('/node_modules', serve(path.join(__dirname, '../../node_modules'))))
 
 app.use(function*(next) {
   this.set('Access-Control-Max-Age', '60')
@@ -23,7 +24,7 @@ app.use(function*(next) {
 
 app.use(function*() {
   if (this.request.is('multipart/*')) {
-    var parts = yield * multipart(this)
+    let parts = yield * multipart(this)
     this.request.body = parts.field
 
     parts.files.forEach(function(file) {

@@ -1,8 +1,8 @@
 'use strict'
 
 function dialog(q) {
-  var node = document.getElementById(q)
-  var content = node.children && node.children[0]
+  let node = document.getElementById(q)
+  let content = node.children && node.children[0]
   return new Dialog(node, content)
 }
 
@@ -16,18 +16,16 @@ class Dialog {
   show() {
     this.node.style.display = 'block'
 
-    var self = this
     setTimeout(() => {
-      self.remove('hide').add('show')
+      this.remove('hide').add('show')
     }, 10)
   }
 
   hide() {
     this.remove('show').add('hide')
 
-    var self = this
     setTimeout(() => {
-      self.node.style.display = 'none'
+      this.node.style.display = 'none'
     }, this.duration)
   }
 

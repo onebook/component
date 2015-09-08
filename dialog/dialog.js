@@ -3,9 +3,9 @@
 function dialog(q, opts) {
   opts = opts || {}
 
-  var node = document.getElementById(q)
-  var content = node.children && node.children[0]
-  var instance = new Dialog(node, content)
+  let node = document.getElementById(q)
+  let content = node.children && node.children[0]
+  let instance = new Dialog(node, content)
 
   if (opts.click2hide) {
     node.addEventListener('click', () => {
@@ -25,17 +25,15 @@ class Dialog {
   show() {
     this.node.classList.add('show')
 
-    var self = this
     setTimeout(() => {
-      self.remove('hide').add('show')
+      this.remove('hide').add('show')
     }, 10)
   }
   hide() {
     this.remove('show').add('hide')
 
-    var self = this
     setTimeout(() => {
-      self.node.classList.remove('show')
+      this.node.classList.remove('show')
     }, this.duration)
   }
   add(name) {

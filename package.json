@@ -4,21 +4,23 @@
   "private": true,
   "description": "my components",
   "scripts": {
-    "support": "node test/support/server",
-    "start": "python -m SimpleHTTPServer 3000"
+    "build": "webpack --config webpack.js",
+    "start": "node test/support/server"
   },
   "devDependencies": {
+    "babel-core": "5",
+    "babel-loader": "5",
     "co-multipart": "0",
-    "gulp": "3",
-    "gulp-babel": "5",
-    "gulp-jade": "1",
-    "gulp-ruby-sass": "1",
-    "gulp-webpack": "1",
+    "css-loader": "0",
+    "extract-text-webpack-plugin": "0",
     "koa": "0",
     "koa-bodyparser": "2",
     "koa-mount": "1",
     "koa-static": "1",
-    "run-sequence": "1"
+    "node-sass": "3",
+    "react": "0",
+    "sass-loader": "2",
+    "webpack": "1"
   },
   "license": "MIT"
 }

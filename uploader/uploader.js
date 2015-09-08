@@ -12,7 +12,7 @@ class Uploader {
 
   /**
    * @param {String} target
-   * @param {String} input
+   * @param {Function} handler
    *
    * Example:
    *   target: '.container'
@@ -29,8 +29,8 @@ class Uploader {
     target.ondrop = (event) => {
       event.preventDefault()
 
-      var dataTransfer = event.dataTransfer
-      var files = dataTransfer.files
+      let dataTransfer = event.dataTransfer
+      let files = dataTransfer.files
 
       handler(files, dataTransfer, event)
     }
@@ -45,7 +45,7 @@ class Uploader {
   }
 
   read(file, type) {
-    var reader = new FileReader()
+    let reader = new FileReader()
 
     switch (type) {
       case 'binaryString':

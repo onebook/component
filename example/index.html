@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>example</title>
+  <link rel="stylesheet" href="/build/index.css">
+  <script src="/node_modules/react/dist/react.js"></script>
+</head>
+<body>
+  <div>
+    <button onclick="dialog('d1').show()">dialog1</button>
+    <button onclick="dialog('d2', { click2hide: true }).show()">dialog2</button>
+    <button onclick="dialogSlide('d3').show()">dialog3</button>
+  </div>
+
+  <div id="dialog"></div>
+
+  <div>
+    <h3>uploader</h3>
+    <div class="drop"></div>
+    <input type="file" id="uploader-file">
+    <button onclick="upload()">upload</button>
+  </div>
+
+  <div class="canvases"></div>
+
+  <style>
+    body {
+      height: 600px;
+    }
+
+    .btn {
+      display: block;
+      width: 60px;
+      height: 30px;
+      background: green;
+    }
+
+    .drop {
+      background: gray;
+      width: 250px;
+      height: 250px;
+    }
+  </style>
+  <script src="/build/index.js"></script>
+</body>
+</html>

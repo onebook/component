@@ -12,7 +12,7 @@ class RotativeDot {
   }
 
   drawDot(x, y, radius) {
-    var ctx = this.context
+    let ctx = this.context
     ctx.beginPath()
     ctx.fillStyle = this.style
     ctx.strokeStyle = this.style
@@ -22,9 +22,9 @@ class RotativeDot {
   }
 
   drawDots(ang) {
-    var dist = this.center * 0.5
-    var ctx = this.context
-    var y = this.size / 5
+    let dist = this.center * 0.5
+    let ctx = this.context
+    let y = this.size / 5
 
     ctx.rotate(ang)
     this.drawDot(dist, y, 4)
@@ -45,9 +45,9 @@ class RotativeDot {
   }
 
   drawBack() {
-    var background = this.background
-    var ctx = this.context
-    var size = this.size
+    let background = this.background
+    let ctx = this.context
+    let size = this.size
 
     ctx.beginPath()
     ctx.strokeStyle = background
@@ -59,31 +59,30 @@ class RotativeDot {
   }
 
   run() {
-    var canvas = document.createElement('canvas')
-    var size = this.size
-    var self = this
+    let canvas = document.createElement('canvas')
+    let size = this.size
 
     canvas.width = canvas.height = size
 
-    var ctx = this.context = canvas.getContext('2d')
+    let ctx = this.context = canvas.getContext('2d')
     this.container.appendChild(canvas)
 
     this.drawBack()
 
-    var interval = this.interval
-    var center = this.center
+    let interval = this.interval
+    let center = this.center
     ctx.translate(center, center)
 
-    var flag = 0
+    let flag = 0
 
-    var clear = () => {
+    let clear = () => {
       ctx.clearRect(-center, -center, size, size)
     }
     setInterval(() => {
       clear()
 
       flag = flag + 0.1
-      self.drawDots(flag)
+      this.drawDots(flag)
     }, interval)
   }
 }
